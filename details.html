@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏠HomyHut</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <!-- Fontawesome -->
+    <script src="https://kit.fontawesome.com/2ee079c21e.js" crossorigin="anonymous"></script>
+    <!-- Flowbite JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <script>
+    
+    tailwind.config = {
+        theme: {
+        extend: {
+            colors: {
+            clifford: '#E76F51',
+            'card-primary': 'rgb(249, 223, 138)',
+            'logo-color': 'rgb(255, 220, 38)',
+            'bgr': 'rgb(255, 249, 244)',
+            }
+        }
+        }
+    }
+    </script>
+</head>
+<body>
+    <header>
+      <nav class="bg-white border-b border-gray-200">
+        <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <!-- Logo -->
+          <a href="/" class="flex items-center rtl:space-x-reverse">
+            <img src="images/logo.png" class="w-14" alt="Logo" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-900">HomyHut</span>
+          </a>
+      
+          <!-- Search and Mobile Menu Button -->
+          <div class="flex md:order-2">
+            <!-- Search Input (Desktop) -->
+            <div class="relative hidden md:block">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="search-navbar"
+                class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:shadow-sm"
+                placeholder="Search..."
+              />
+            </div>
+      
+            <!-- Mobile Menu Button -->
+            <button
+              data-collapse-toggle="navbar-search"
+              type="button"
+              class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 transition-all duration-300"
+              aria-controls="navbar-search"
+              aria-expanded="false"
+            >
+              <span class="sr-only">Open menu</span>
+              <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+              </svg>
+            </button>
+          </div>
+      
+          <!-- Navigation Links and Mobile Search -->
+          <div class="hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
+            <!-- Search Input (Mobile) -->
+            <div class="relative mt-3 md:hidden">
+              <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"/>
+                </svg>
+              </div>
+              <input
+                type="text"
+                id="search-mobile"
+                class="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 transition-all duration-300 hover:shadow-sm"
+                placeholder="Search..."
+              />
+            </div>
+      
+            <!-- Navigation Links -->
+            <ul class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-white md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-all duration-300 hover:scale-105"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  href="about.html"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-all duration-300 hover:scale-105"
+                >
+                  About
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-all duration-300 hover:scale-105"
+                >
+                  Rent
+                </a>
+              </li>
+              <li>
+                <a
+                  href="login.html"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-all duration-300 hover:scale-105"
+                >
+                  Login
+                </a>
+              </li>
+              <li>
+                <a
+                  href="register.html"
+                  class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 transition-all duration-300 hover:scale-105"
+                >
+                  Signup
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    
+    </header>
+
+    <main class="">
+      
+      <!-- Property Details Section -->
+<div class="container mx-auto p-6">
+    <div class="flex flex-col lg:flex-row gap-8">
+      <!-- Image Section (Left) -->
+      <div class="lg:w-2/5">
+        <div class="sticky top-6">
+          <img 
+            src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&q=80&w=2070&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
+            alt="Property" 
+            class="w-full h-auto object-cover rounded-xl shadow-lg"
+          />
+          <!-- You can add thumbnail gallery here if needed -->
+        </div>
+      </div>
+  
+      <!-- Details Section (Right) -->
+      <div class="lg:w-3/5 bg-base-100 p-6 rounded-xl shadow-lg">
+        <!-- Badges Section -->
+        <div class="flex justify-between items-start mb-6">
+          <div class="badge badge-outline badge-accent text-lg">Apartment</div>
+          <div class="badge badge-success text-lg">Available</div>
+        </div>
+  
+        <!-- Title -->
+        <h1 class="text-4xl font-bold mb-6">Modern 3BHK Apartment</h1>
+  
+        <!-- Price -->
+        <div class="mb-8">
+          <div class="text-3xl font-bold text-primary">
+            $1,200 <span class="text-gray-500 text-xl">/month</span>
+          </div>
+        </div>
+  
+        <!-- Location -->
+        <div class="flex items-center gap-2 text-gray-600 mb-8">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+          <span class="text-lg">Downtown, New York</span>
+        </div>
+  
+        <!-- Description -->
+        <div class="mb-8">
+          <h3 class="text-xl font-semibold mb-4">Property Details</h3>
+          <p class="text-gray-700 leading-relaxed">
+            This beautiful fully furnished apartment is located in the heart of downtown New York. It features 3 spacious bedrooms, 2 modern bathrooms, a fully equipped kitchen, and a cozy living area. The apartment is surrounded by top-notch amenities, including a gym, swimming pool, and 24/7 security. Perfect for families or professionals looking for a comfortable and convenient living space.
+          </p>
+        </div>
+  
+        <!-- Features Grid -->
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+            </svg>
+            <span>3 Bedrooms</span>
+          </div>
+          <!-- Add more features here -->
+        </div>
+  
+        <!-- Action Buttons -->
+        <div class="flex flex-col gap-4">
+          <button class="btn btn-primary w-full">
+            Contact Agent
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+            </svg>
+          </button>
+          
+          <button class="btn btn-outline btn-secondary w-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+            </svg>
+            Add to Favorites
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+    </main>
+
+    <footer class="font-lexend py-4 w-full min-h-full">
+      <div class="max-w-[80rem] mx-auto space-y-6 px-2 md:px-4 lg:px-6 pt-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-y-6">
+          <div class="text-gray-700">
+            <ul>
+              <li class="mb-4">
+                <h2 class="font-bold text-lg">Explore</h2>
+              </li>
+              <li><a href="#">Find a Home</a></li>
+              <li><a href="#">List Your Home</a></li>
+              <li><a href="#">Reviews & Ratings</a></li>
+              <li><a href="#">FAQs</a></li>
+            </ul>
+          </div>
+          <div class="text-gray-700">
+            <ul>
+              <li class="mb-4">
+                <h2 class="font-bold text-lg">Quick Links</h2>
+              </li>
+              <li><a href="#">How It Works</a></li>
+              <li><a href="#">Contact Us</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="text-gray-700">
+            <ul>
+              <li class="mb-4">
+                <h2 class="font-bold text-lg">About HomyHut</h2>
+              </li>
+              <li><a href="#">Our Story</a></li>
+              <li><a href="#">Careers</a></li>
+              <li><a href="#">Privacy Policy</a></li>
+            </ul>
+          </div>
+          <div class="bg-gray-100 lg:col-span-2 p-4 space-y-2">
+            <h2 class="font-bold text-lg">Subscribe to Our Newsletter</h2>
+            <div class="relative flex flex-row w-full rounded-xl overflow-hidden border h-12">
+              <label for="email" class="sr-only">Email</label>
+              <input
+                type="email"
+                id="email"
+                placeholder="your@email.com"
+                class="flex-1 bg-white h-full px-4 focus:border-none focus:outline-none focus:ring-0" />
+              <button type="submit" class="inline-block h-full px-3 w-12 md:w-16 bg-blue-600 text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-full fill-current mx-auto" viewBox="0 0 512 512">
+                  <path d="M502.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 224H32c-17.7 0-32 14.3-32 32s14.3 32 32 32h370.7l-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/>
+                </svg>
+              </button>
+            </div>
+            <p class="max-w-96 text-gray-500 font-light">
+              Stay updated with the latest home rental listings, market insights, and tips from HomyHut.
+            </p>
+          </div>
+        </div>
+        <div class="h-px w-full bg-gray-900/10"></div>
+        <div class="flex flex-row justify-between items-center text-sm text-gray-600">
+          <a href="#" class="inline-flex items-center gap-2">
+            <img src="images/logo.png" alt="HomyHut Logo" class="w-8 h-8">
+            <span class="inline-block text-xl font-bold">HomyHut</span>
+          </a>
+          <ul class="flex items-center gap-4">
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <ul class="flex items-center gap-4">
+            <li>
+              <a href="#" class="inline-block rounded-full h-8 w-8 p-2 border">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full fill-current" viewBox="0 0 512 512">
+                  <path d="M100.28 448H7.4V148.9h92.88zM53.79 108.1C24.09 108.1 0 83.5 0 53.8a53.79 53.79 0 0 1 107.58 0c0 29.7-24.1 54.3-53.79 54.3zM447.9 448h-92.68V302.4c0-34.7-.7-79.2-48.29-79.2-48.29 0-55.69 37.7-55.69 76.7V448h-92.78V148.9h89.08v40.8h1.3c12.4-23.5 42.69-48.3 87.88-48.3 94 0 111.28 61.9 111.28 142.3V448z"/>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="inline-block rounded-full h-8 w-8 p-2 border">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full fill-current" viewBox="0 0 24 24">
+                  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2">
+                    <path d="M0 0h24v24H0z"/>
+                    <path fill="currentColor" d="M18 2a1 1 0 0 1 .993.883L19 3v4a1 1 0 0 1-.883.993L18 8h-3v1h3a1 1 0 0 1 .991 1.131l-.02.112l-1 4a1 1 0 0 1-.858.75L17 15h-2v6a1 1 0 0 1-.883.993L14 22h-4a1 1 0 0 1-.993-.883L9 21v-6H7a1 1 0 0 1-.993-.883L6 14v-4a1 1 0 0 1 .883-.993L7 9h2V8a6 6 0 0 1 5.775-5.996L15 2z"/>
+                  </g>
+                </svg>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="inline-block rounded-full h-8 w-8 p-2 border">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-full h-full fill-current" viewBox="0 0 512 512">
+                  <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/>
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+    
+
+</body>
+</html>
