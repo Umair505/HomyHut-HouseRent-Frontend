@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Rental Details</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Post Rent Ad - HomyHut</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.5/dist/full.css" rel="stylesheet" type="text/css" />
 </head>
-<body class="bg-gray-100">
+<body class="bg-gray-100 p-6">
     <header>
         <nav class="bg-white border-b border-gray-200">
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -113,30 +114,44 @@
           </nav>
     
     </header>
-    <main class="p-6 min-h-screen">
-        <!-- Rental Details Section -->
-        <section class="max-w-6xl mx-auto bg-white shadow-md rounded-lg p-6">
-            <h1 class="text-3xl font-bold text-center mb-6">Rental Details</h1>
-            <div id="rental-details" class="flex flex-col md:flex-row gap-8">
-                <!-- Image on the left -->
-                <div class="md:w-1/2">
-                    <img id="rental-image" src="House-img/3.jpg" alt="Rental Image" class="w-full h-96 rounded-lg object-cover">
-                </div>
-                <!-- Details on the right -->
-                <div class="md:w-1/2 space-y-4">
-                    <h2 id="rental-title" class="text-2xl font-semibold">Loading...</h2>
-                    <p id="rental-category" class="text-gray-500">Category: Loading...</p>
-                    <p id="rental-location" class="text-gray-600">Location: Loading...</p>
-                    <p id="rental-price" class="text-lg font-bold">Price: Loading...</p>
-                    <p id="rental-availability" class="font-semibold">Availability: Loading...</p>
-                    <p id="rental-description" class="text-gray-700">Description: Loading...</p>
-                </div>
+    <div class="max-w-2xl mx-auto bg-white p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold text-center mb-4">Post a Rent Ad</h2>
+        <form action="https://homyhut-houserent-backend.onrender.com/api/rent/rent-ads/" method="POST" class="space-y-4">
+            <div>
+                <label class="block font-semibold">Title</label>
+                <input type="text" name="title" class="input input-bordered w-full" placeholder="Enter title" required>
             </div>
-            <div class="mt-6 text-center">
-                <a href="index.html" class="inline-block px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition duration-200">Back to Listings</a>
+            <div>
+                <label class="block font-semibold">Description</label>
+                <textarea name="description" class="textarea textarea-bordered w-full" placeholder="Enter description" required></textarea>
             </div>
-        </section>
-    </main>
+            <div>
+                <label class="block font-semibold">Price (BDT)</label>
+                <input type="number" name="price" class="input input-bordered w-full" placeholder="Enter price" required>
+            </div>
+            <div>
+                <label class="block font-semibold">Location</label>
+                <input type="text" name="location" class="input input-bordered w-full" placeholder="e.g. Chattogram, Agrabad" required>
+            </div>
+            <div>
+                <label class="block font-semibold">Contact Number</label>
+                <input type="text" name="contact" class="input input-bordered w-full" placeholder="Enter contact number" required>
+            </div>
+            <div>
+                <label class="block font-semibold">Upload Image</label>
+                <input
+                  type="file"
+                  name="image"
+                  class="file-input file-input-bordered w-full"
+                  accept="image/*"
+                  required
+                />
+              </div>
+            <div>
+                <button type="submit" class="btn btn-primary w-full">Post Ad</button>
+            </div>
+        </form>
+    </div>
     <!-- Footer -->
 <footer class="footer p-10 text-base-content">
     <div class="max-w-6xl mx-auto">
@@ -198,57 +213,6 @@
     <p>© 2025 HomyHut. All rights reserved.</p>
 </div>
 
-
-    <script>
-        // Function to fetch rental details from the API
-async function fetchRentalDetails() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const rentalId = urlParams.get('id');
-
-    if (!rentalId) {
-        document.getElementById('rental-details').innerHTML = '<p class="text-red-500">Error: Rental ID not provided in the URL.</p>';
-        return;
-    }
-
-    try {
-        const response = await fetch(`https://homyhut-houserent-backend.onrender.com/api/rent/rent-ads/${rentalId}/`);
-        console.log('API Response:', response); // Debugging: Log the response
-
-        if (!response.ok) {
-            throw new Error(`Failed to fetch rental details. Status: ${response.status}`);
-        }
-
-        const rental = await response.json();
-        console.log('Rental Data:', rental); // Debugging: Log the fetched data
-
-        // Ensure rental data is valid
-        if (!rental || !rental.title) {
-            throw new Error('Invalid rental data received from the API.');
-        }
-
-        // Set rental details in the DOM
-        document.getElementById('rental-image').src = rental.image || 'House-img/3.jpg';
-        document.getElementById('rental-title').textContent = rental.title;
-        document.getElementById('rental-category').textContent = `Category: ${rental.category || 'N/A'}`;
-        document.getElementById('rental-location').textContent = `Location: ${rental.location || 'N/A'}`;
-        document.getElementById('rental-price').textContent = `Price: $${rental.price || 'N/A'}/month`;
-        
-        // Ensure `available` is treated correctly (convert to boolean if necessary)
-        const isAvailable = rental.available === true || rental.available === 'true';
-        document.getElementById('rental-availability').textContent = isAvailable ? 'Available' : 'Available';
-        document.getElementById('rental-availability').classList.toggle('text-green-500', isAvailable);
-        document.getElementById('rental-availability').classList.toggle('text-green-500', !isAvailable);
-
-        document.getElementById('rental-description').textContent = rental.description || 'No description provided.';
-    } catch (error) {
-        console.error('Error fetching rental details:', error); // Debugging: Log the error
-        document.getElementById('rental-details').innerHTML = `<p class="text-red-500">Error: ${error.message}</p>`;
-    }
-}
-
-// Fetch rental details when the page loads
-fetchRentalDetails();
-
-    </script>
+    <script src="./js/app.js"></script>
 </body>
 </html>
